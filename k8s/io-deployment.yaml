@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: io-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: io
+  template:
+    metadata:
+      labels:
+        app: io
+    spec:
+      containers:
+        - name: io
+          image: juliadsleal/poi-io:latest
+          ports:
+            - containerPort: 8003

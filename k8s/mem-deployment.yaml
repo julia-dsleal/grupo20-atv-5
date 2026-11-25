@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mem-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mem
+  template:
+    metadata:
+      labels:
+        app: mem
+    spec:
+      containers:
+        - name: mem
+          image: juliadsleal/poi-mem:latest
+          ports:
+            - containerPort: 8002
